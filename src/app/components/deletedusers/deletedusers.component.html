@@ -1,0 +1,62 @@
+<script src="sweetalert2.all.min.js"></script>
+<body class="bg3">
+  <div class="example-loading-shade"
+  *ngIf="isLoadingResults">
+<mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+</div>
+
+        <mat-form-field >
+          <input matInput (keyup)="applyFilter($event.target.value)" [(ngModel)]="filteredUserName" placeholder="Filter">
+        </mat-form-field>
+        <div *ngIf="filter">
+
+        <table class="table" style="width:60%">
+          
+            <thead>
+                <th>User Name</th>
+                <th>Email Id</th>
+                <th>Contact No</th>
+              </thead>
+            
+            <tbody>
+              <ng-container *ngFor="let fproduct of filteredData.users | paginate: {itemsPerPage: 3, currentPage: fp, totalItems: filteredData.totalItems}">
+              <tr>
+              <td>{{fproduct.userName}}</td>
+              <td>{{fproduct.emailId}}</td>
+              <td>{{fproduct.contactNo}}</td>
+              </tr>
+              </ng-container>
+              </tbody>
+          </table>
+        </div>
+        <div style="padding-left:280px" *ngIf="filter">
+          <pagination-controls (pageChange)="getFilteredPage($event)"></pagination-controls>
+        </div>
+        
+        <div *ngIf="!filter">
+   
+        <table class="table" style="width:60%">
+          
+            <thead>
+                <th>User Name</th>
+                <th>Email Id</th>
+                <th>Contact No</th>
+              </thead>
+             
+            
+            <tbody>
+              <ng-container *ngFor="let product of data.users | paginate: {itemsPerPage: 3, currentPage: p, totalItems: data.totalItems}">
+              <tr>
+              <td>{{product.userName}}</td>
+              <td>{{product.emailId}}</td>
+              <td>{{product.contactNo}}</td>
+              </tr>
+              </ng-container>
+              </tbody>
+          </table>
+        </div>     
+                <div style="padding-left:280px" *ngIf="!filter">
+                  <pagination-controls (pageChange)="getPage($event)"></pagination-controls>
+                </div>
+     
+</body>

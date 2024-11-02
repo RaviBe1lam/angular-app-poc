@@ -1,0 +1,35 @@
+<div class="bg3"></div>
+<div class="main-div">
+    <mat-card class="example-card">
+      <form [formGroup]="insertForm" (ngSubmit)="onFormSubmit(insertForm.value)">
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" [readonly]="true" placeholder="product Name" [(ngModel)]="prodName" readOnly formControlName="productName"
+                  [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!insertForm.get('productName').valid && insertForm.get('productName').touched">Please enter product Name</span>
+          </mat-error>
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" placeholder="product Description" [(ngModel)]="prodDesc"  formControlName="productDesc"
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!insertForm.get('productDesc').valid && insertForm.get('productDesc').touched">Please enter Product Description</span>
+          </mat-error>
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+          <input matInput type="number" placeholder="productPrice" [(ngModel)]="prodPrice"  formControlName="productPrice"
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!insertForm.get('productPrice').valid && insertForm.get('productPrice').touched">Please enter Product Price</span>
+          </mat-error>
+        </mat-form-field>
+        <div class="button-row">
+          <button type="submit" [disabled]="!insertForm.valid" mat-flat-button color="primary">EDIT PRODUCT</button>
+          <div class="form-group" class="text-right">
+            <a routerLink="/products" >Back</a>
+        </div>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+  

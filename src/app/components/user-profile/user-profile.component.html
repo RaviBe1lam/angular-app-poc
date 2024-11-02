@@ -1,0 +1,34 @@
+<body class="bg3">
+  <div class="example-loading-shade"
+  *ngIf="isLoadingResults">
+<mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+</div>
+  <!-- <div style="margin:50px;">
+  <div class="table-responsive" style="padding-top: 100px;width:70%">
+    <table class="table"style="width:90%">
+      <thead>
+        <tr>
+          <th>User Name</th>
+          <th>Email Id</th>
+          <th>Contact Number</th>
+        </tr>
+      </thead>
+      <tbody>
+          <td>{{userName}}</td>
+          <td>{{emailId}}</td>
+          <td>{{contactNo}}</td>
+      </tbody>
+    </table>
+    <a routerLink="/products" class="nav__item">Back</a>
+  </div>
+</div> -->
+<div class="main-div">
+<mat-card class="example-card">
+  <p><b><h3>Your Profile</h3></b></p>
+ <p><b>Username :</b>{{userName}}</p> <br>
+ <p><b>Email Id  :</b>{{emailId}}</p><br>
+ <p><b>Contact No. :</b>{{contactNo}}</p>
+
+</mat-card>
+</div>
+</body>

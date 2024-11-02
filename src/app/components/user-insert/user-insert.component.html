@@ -1,0 +1,58 @@
+<div class="bg3"></div>
+<div class="main-div">
+  <div *ngIf="errorMessage">
+    <div class="alert alert-danger" role="alert">
+      {{errorMessage}}
+    </div>
+</div>
+    <mat-card class="example-card">
+      <form [formGroup]="insertForm" (ngSubmit)="onFormSubmit(insertForm.value)">
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" placeholder="user Name" formControlName="userName"
+                  [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!insertForm.get('userName').valid && insertForm.get('userName').touched">Please enter Username</span>
+          </mat-error>
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+          <input matInput type="email" placeholder="Email Id" formControlName="emailId"
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!insertForm.get('emailId').valid && insertForm.get('emailId').touched">Please enter Email Id</span>
+            <span *ngIf="!insertForm.get('emailId').errors && insertForm.get('emailId').touched">Please enter Valid Email Id</span>
+          </mat-error>
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+          <input matInput type="number" placeholder="Contact Number" formControlName="contactNo"
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!insertForm.get('contactNo').valid && insertForm.get('contactNo').touched">Please enter Contact No</span>
+          </mat-error>
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+          <mat-select placeholder="Role" formControlName="role">
+            <mat-option value="USER">USER</mat-option>
+            <mat-option value="ADMIN">ADMIN</mat-option>
+          </mat-select>
+          <mat-error>
+            <span *ngIf="!insertForm.get('role').valid && insertForm.get('role').touched">Please Choose Role</span>
+          </mat-error>
+       </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <input matInput type="password" placeholder="PassWord" formControlName="password"
+                   [errorStateMatcher]="matcher">
+            <mat-error>
+              <span *ngIf="!insertForm.get('password').valid && insertForm.get('password').touched">Please enter password</span>
+            </mat-error>
+          </mat-form-field>
+        <div class="button-row">
+          <button type="submit" [disabled]="!insertForm.valid" mat-flat-button color="primary">Create User</button>
+          <div class="form-group" class="text-right">
+            <a routerLink="/users">Back</a>
+        </div>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+   

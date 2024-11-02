@@ -1,0 +1,35 @@
+<div class="bg3"></div>
+<div class="main-div">
+    <mat-card class="example-card">
+      <form [formGroup]="insertForm" (ngSubmit)="onFormSubmit(insertForm.value)" style="width:100%">
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" [readonly]="true" placeholder="user Name" [(ngModel)]="userName" readOnly formControlName="userName"
+                  [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!insertForm.get('userName').valid && insertForm.get('userName').touched">Please enter user Name</span>
+          </mat-error>
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+          <input matInput type="email" placeholder="Email Id" [(ngModel)]="emailId"  formControlName="emailId"
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!insertForm.get('emailId').valid && insertForm.get('emailId').touched">Please enter Email Id</span>
+          </mat-error>
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+          <input matInput type="number" placeholder="Contact No" [(ngModel)]="contactNo"  formControlName="contactNo"
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!insertForm.get('contactNo').valid && insertForm.get('contactNo').touched">Please enter Contact No</span>
+          </mat-error>
+        </mat-form-field>
+        <div class="button-row">
+          <button type="submit" [disabled]="!insertForm.valid" mat-flat-button color="primary">Edit User</button>
+          <div class="form-group" class="text-right">
+            <a routerLink="/users">Back</a>
+        </div>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+  

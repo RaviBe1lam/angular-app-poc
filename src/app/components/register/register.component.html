@@ -1,0 +1,77 @@
+<div class="bg2">
+    <h1><b><i>Register Form</i></b></h1>
+<div class="main-div" >
+    <mat-card class="example-card" style="width:40%" >
+              <mat-card-content>
+<div *ngIf="successMessage">
+    <div class="alert alert-success" role="alert">
+      {{successMessage}}
+    </div>
+</div>
+<div *ngIf="errorMessage">
+    <div class="alert alert-danger" role="alert">
+      {{errorMessage}}
+    </div>
+</div>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="userName">User Name</label>
+        <input type="text" formControlName="userName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" />
+        <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+            <div *ngIf="f.userName.errors.required">User Name is required</div>
+        </div>
+        <div class="alert alert-danger fade show" *ngIf="username.errors?.notUnique">
+            <small>Username Already Exists</small>
+        </div>
+        <div class="alert alert-danger fade show" *ngIf="username.errors?.incorrect">
+            <small>Username should not contain '/'</small>
+        </div>
+        <div class="alert alert-warning fade show" *ngIf="username.pending">
+            <small>Checking availability</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="emailId">Email Id</label>
+        <input type="text" formControlName="emailId" class="form-control" pattern="^(.+)@(.+)$" [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }" />
+        <div *ngIf=" submitted && f.emailId.errors" class="invalid-feedback">
+            <div *ngIf="f.emailId.errors.required">Email Id is required</div>
+            <div *ngIf="f.emailId.errors?.pattern">Email Id is invalid</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="contactNo">Contact No</label>
+        <input type="tel" formControlName="contactNo" class="form-control" pattern="^[6789]\d{9}$" [ngClass]="{ 'is-invalid': submitted && f.contactNo.errors }" />
+        <div *ngIf="submitted && f.contactNo.errors" class="invalid-feedback">
+        <div *ngIf="f.contactNo.touched && f.contactNo.errors?.pattern">Contact Number Should have only numbers starting with 6,7,8,9 and 10 digits</div>
+        <div *ngIf="f.contactNo.errors.required">Contact Number is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control"  pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.touched && f.password.errors?.pattern">Password must contain atleast 8 characters with UpperCase, LowerCase, Number/Special Character</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+            <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+            <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords Must Match</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary">
+            Register
+        </button>
+    </div>
+    <div class="form-group" class="text-right">
+        <a routerLink="" class="btn btn-success">Login</a>
+    </div>   
+</form>
+</mat-card-content>
+</mat-card>
+</div>
+</div>

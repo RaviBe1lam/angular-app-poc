@@ -1,0 +1,50 @@
+.mat-card {
+    background: rgb(139, 139, 139);
+    color: white;
+    /* display: block; */
+    width: 500px;
+    height: 420px;
+    margin-left:auto;
+    margin-right:auto;  
+    vertical-align:middle;
+    justify-content: center;
+    align-items: center;
+}
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,1), 
+              0 1px 1px 0 rgba(0,0,0,1), 
+              0 1px 3px 0 rgba(0,0,0,1);
+}
+.main-div{
+    padding-top: 100px;
+}
+.mat-flat-button.mat-primary[disabled] {
+    color: rgba(255, 255, 255, 0.97);
+    background-color: #7b1fa2;
+}
+::placeholder { 
+    color:lightgray;
+    opacity: 1; 
+  }
+  mat-form-field{
+    color: rgb(255, 255, 255);
+    width: 350px;
+    justify-content: center;
+    align-items: center;
+}
+/* .bg3{
+ 
+    background: url("../../../assets/images/pexels-photo-281260.jpeg")no-repeat;
+    position: fixed;
+    max-width: 100%;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow: auto;
+    background-position: right 0px bottom 0px;
+    background-size: cover;
+   
+  
+    }  */

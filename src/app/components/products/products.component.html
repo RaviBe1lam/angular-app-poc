@@ -1,0 +1,70 @@
+<body class="bg3">
+    <div class="example-loading-shade" style="position:fixed;top:50%;left:50%"
+    *ngIf="isLoadingResults">
+  <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" [(ngModel)]="filteredProductName" placeholder="Filter By Product Name">
+  </mat-form-field>
+
+  <div *ngIf="filter">  
+  <table class="table" style="width:60%">
+    
+      <thead>
+          <th>Product Name</th>
+          <th>Product Description</th>
+          <th>Product Price</th>
+           <th>Edit</th>
+          <th>Delete</th>
+        </thead>
+       
+      
+      <tbody>
+        <ng-container *ngFor="let fproduct of filteredData.products | paginate: {itemsPerPage: 3, currentPage: fp, totalItems: filteredData.totalItems}">
+        <tr>
+        <td>{{fproduct.prodName}}</td>
+        <td>{{fproduct.prodDesc}}</td>
+        <td>{{fproduct.prodPrice}}</td>
+        <td><a mat-flat-button color="primary"class="bg1" (click)="editColumn(fproduct.prodName)"><mat-icon >edit</mat-icon></a></td>
+        <td><a mat-flat-button color="primary" class="bg2" (click)="deleteColumn(fproduct.prodName)"><mat-icon >delete</mat-icon></a></td>
+        </tr>
+        </ng-container>
+        </tbody>
+    </table>
+  </div>
+  <div style="padding-left:280px" *ngIf="filter">
+    <pagination-controls (pageChange)="getFilteredPage($event)"></pagination-controls>
+</div>
+
+  
+  <div *ngIf="!filter">
+  <table class="table" style="width:60%">
+    
+      <thead>
+          <th>Product Name</th>
+          <th>Product Description</th>
+          <th>Product Price</th>
+           <th>Edit</th>
+           <th *ngIf="userType === 'ADMIN'">Delete</th>
+        </thead>
+       
+      
+      <tbody>
+        <ng-container *ngFor="let product of data.products | paginate: {itemsPerPage: 3, currentPage: p, totalItems: data.totalItems}">
+        <tr>
+        <td>{{product.prodName}}</td>
+        <td>{{product.prodDesc}}</td>
+        <td>{{product.prodPrice}}</td>
+        <td><a mat-flat-button color="primary"class="bg1" (click)="editColumn(product.prodName)"><mat-icon >edit</mat-icon></a></td>
+        <td *ngIf="userType === 'ADMIN'"><a mat-flat-button color="primary" class="bg2" (click)="deleteColumn(product.prodName)" ><mat-icon >delete</mat-icon></a></td>
+        </tr>
+        </ng-container>
+        </tbody>
+    </table>
+  </div>
+          <div style="padding-left:280px" *ngIf="!filter">
+            <pagination-controls (pageChange)="getPage($event)"></pagination-controls>
+        </div>
+        <a mat-flat-button color="primary" class="bg4" (click)="insertProducts()"><mat-icon style="align:center">add</mat-icon></a>
+  </body>
+  

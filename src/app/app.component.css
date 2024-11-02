@@ -1,0 +1,15 @@
+:host {
+    display: inline-block;
+    background-color: lightgray;
+    width: 100%;
+   }
+   /* .bg1{
+  border: 2px solid black;
+  padding: 25px;
+  background: url("../../../assets/images/business.jpeg");
+ 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+  background: url("/src/assets/images/business.jpeg");
+  }   */

@@ -1,0 +1,133 @@
+body { padding-top: 70px; 
+   }
+  /* ::placeholder {
+    color:red;
+    opacity: 1; 
+  } */
+  /* .table-responsive {
+    display: table;
+    
+  } */
+  /* Border */
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+      color: rgb(255, 255, 255);
+    }
+    .mat-table {
+      background: #f7f3f3;
+  }
+  .mat-cell, .mat-footer-cell {
+    color: #000;
+  }
+
+  .mat-spinner{
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: visible;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  
+  .mat-header-cell {
+    font-size: 14px;
+    font-weight: 500;
+    
+      color: white;
+      background-color: #5274cc;
+  }
+    
+  
+  .mat-input-element {
+    caret-color: #040404;
+  }
+  .mat-form-field {
+    color: white;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+    
+  mat-form-field {
+    /* background-color: black */
+padding-left: 220px;
+    
+  }
+   /* .mat-fab.mat-primary, .mat-flat-button.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary {
+    background-color: #a93b3b;
+} */
+     
+/*   
+    .bg3{
+ 
+    background: url("../../../assets/images/pexels-photo-129731.jpeg")no-repeat;
+    
+    opacity: 1; 
+    position: fixed;
+    max-width: 100%;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow: auto;
+    background-position: right 0px bottom 0px;
+    background-size: cover;
+   
+  
+    }   */
+    .bg1
+    {
+      background-color: #40ad47;
+    }
+  .bg2
+  {
+    background-color: #a92020;
+  }
+  .bg4
+  {
+    background-color: #1f50a2;
+    /* justify-content: center;
+    align-items: center;
+    margin: 0 auto; */
+    
+
+  }
+  .mat-paginator {
+    background: #5d5477;
+    margin-left:auto; 
+  margin-right:auto; 
+  padding-left: 290px;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 4px;
+}
+
+.ngx-pagination .disabled {
+    padding: 0.1875rem 0.625rem;
+    color: #ffffff;
+    cursor: default;
+}
+th{
+  background-color: gray;
+  color: white;
+}
+table, th , td {
+  border: 3px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+  margin-left:auto; 
+  margin-right:auto; 
+}
+
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
